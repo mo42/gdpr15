@@ -1,0 +1,25 @@
+{
+    "company": {
+        "id": 1,
+        "name": "Example Company",
+        "street": "Somestreet 42",
+        "pcode": "111111",
+        "city": "Somecity",
+        "email": "example@example.com",
+        "url": "http://www.example.com/",
+        "contact_url": "http://www.example.com/customer_support.html",
+        "phone": "004242424242",
+        "comment": "",
+        "state": "",
+        "created_at": "2010-01-01T00:00:00.000+00:00",
+        "updated_at": "2010-01-01T00:00:00.000+00:00",
+        "mailing_mode": "",
+        "cached_tag_list": "",
+        "slug": null,
+        "approved_at": null,
+        "inquiry_kind": "bdsg34",
+        "department": "",
+        "objection_kind": null,
+        "tag_ids": []
+    }
+}
