@@ -1,6 +1,6 @@
 # bdsg34
 
-Hilft Auskünfte nach § Bundesdatenschutzgesetz (BDSG) automatisch zu
+Hilft Auskünfte nach § 34 Bundesdatenschutzgesetz (BDSG) automatisch zu
 erstellen.
 
 ## Abhängigkeiten
