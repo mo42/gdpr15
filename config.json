@@ -1,7 +1,7 @@
 {
-  "name": "John Doe",
-  "street": "Doestreet 1",
-  "city": "Doecity",
+  "name": "Max Mustermann",
+  "street": "Musterstraße 1",
+  "city": "Musterstadt",
   "zip": "111111",
   "birth_date": "01.01.1970"
 }
