@@ -1,6 +1,6 @@
 # bdsg34
 
-Erstellt automatisch Auskünfte nach § 34 Bundesdatenschutzgesetz (BDSG).
+Erstellt automatisch Auskünfte nach Art. 15 DSGVO.
 
 ## Abhängigkeiten
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-'''Automatically send a request according to § 34 BDSG.'''
+'''Automatically send a request according to article 15 GDPR.'''
 
 import json
 import subprocess
@@ -29,7 +29,7 @@ class Requester(object):
 
 class Letter(object):
     '''This class represents the letter for requesting your own information
-    according to § 34 BDSG.'''
+    according to article 15 GDPR.'''
     def __init__(self, institution_json, requester_json):
         self.institution = Institution(institution_json)
         self.requester = Requester(requester_json)
@@ -56,7 +56,7 @@ class Letter(object):
             + r'\setkomavar{place}{' + self.requester.name + '}\n' \
             + r'\setkomavar{place}{' + self.requester.city + '}\n\n' \
             + r'\setkomavar{date}{\today}' + '\n\n' \
-            + r'\setkomavar{subject}{Selbstauskunft nach \S 34 BDSG}' + '\n\n' \
+            + r'\setkomavar{subject}{Selbstauskunft nach Art. 15 DSGVO}' + '\n\n' \
             + r'\opening{Sehr geehrte Damen und Herren,}' + '\n\n' \
             + self.text + '\n' \
             + r'Mein Name: \textbf{' + self.requester.name + r'}\\' + '\n' \
