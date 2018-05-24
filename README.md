@@ -22,4 +22,3 @@ Es wird Python und LaTeX benötigt.
 
 ## TODO
 * Englische Version
-* Projektnamen anpassen
