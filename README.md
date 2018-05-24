@@ -12,8 +12,8 @@ For it to run, Python and LaTeX is required.
     [selbstauskunft.net](https://selbstauskunft.net/) can be used.
 
 ## Quick Start
-1. Create a file for a data controller in ```contacts/```, which you want
-   request.
+1. Create a file for a data controller in ```contacts/``` you want information
+   from.
    * There is an example file
    * Alternatively, you can use the files from
      [selbstauskunft.net](https://selbstauskunft.net/)
