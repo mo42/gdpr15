@@ -33,7 +33,7 @@ class Letter(object):
     def __init__(self, institution_json, requester_json):
         self.institution = Institution(institution_json)
         self.requester = Requester(requester_json)
-        text = open('bdsg34.txt', 'r')
+        text = open('dsgvo15.txt', 'r')
         self.text = text.read()
 
     def to_tex(self):
