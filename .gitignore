@@ -1,0 +1,6 @@
+contacts/
+!contacts/sample.json
+*.aux
+*.log
+*.pdf
+*.tex
