@@ -1,7 +1,7 @@
 {
-  "name": "Max Mustermann",
-  "street": "Musterstraße 1",
-  "city": "Musterstadt",
-  "zip": "111111",
-  "birth_date": "01.01.1970"
+  "requester_name": "Max Mustermann",
+  "requester_street": "Musterstraße 1",
+  "requester_city": "Musterstadt",
+  "requester_zip": "111111",
+  "requester_birth_date": "01.01.1970"
 }
