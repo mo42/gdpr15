@@ -1,0 +1,67 @@
+\documentclass{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.36cm plus0.09cm minus0.09cm}
+\usepackage{lastpage}
+\makeatletter
+\renewcommand\pagemark{%
+  \usekomafont{pageheadfoot}\usekomafont{pagefoot}\usekomafont{pagenumber}%
+    \flushright Seite \thepage{}~von~\pageref{LastPage}%
+}
+\makeatother
+\setkomavar{firstfoot}{\raggedleft\usekomafont{pageheadfoot}{\usekomafont{pagefoot}{\pagemark}}}
+\begin{document}
+\begin{letter}{$name\\$street\\$pcode $city}
+\setkomavar{fromname}{$requester_name}
+\setkomavar{fromaddress}{%
+$requester_street\\
+$requester_zip $requester_city
+}
+
+\setkomavar{place}{$requester_city}
+\setkomavar{date}{\today}
+\setkomavar{subject}{Auskunft nach Art. 15 DSGVO}
+
+\opening{Sehr geehrte Damen und Herren,}
+
+hiermit bitte ich um Auskunft gemäß Artikel 15 Absatz 1 DSGVO, ob Sie
+personenbezogene Daten über mich gespeichert haben. Sollten Sie
+personenbezogene Daten über mich gespeichert haben, bitte ich um Auskunft
+über:
+
+\begin{enumerate}
+  \item welche personenbezogenen Daten Sie über mich gespeichert haben,
+  \item welche Kategorien personenbezogener Daten Sie verarbeiten,
+  \item zu welchen Zwecken diese Daten verarbeitet werden,
+  \item wie lange meine personenbezogenen Daten gespeichert werden oder
+  Kriterien, wie die Dauer festgelegt wird,
+  \item Empfänger oder Kategorien von Empfängern, die diese Daten erhalten
+  haben oder künftig noch erhalten werden,
+  \item ob das Rechts besteht, die Daten zu berichtigen, zu löschen, die
+  Verarbeitung einzuschränken oder der Verarbeitung zu widersprechen,
+  \item mein Beschwerderecht bei der zuständigen Aufsichtsbehörde,
+  \item aus welcher Quelle Sie Daten erhalten haben und
+  \item falls Sie Methoden der automatischen Entscheidungsfindung (Profiling)
+  einsetzen, bitte ich um Informationen über die Verfahren sowie um
+  Informationen über mögliche Folgen.
+\end{enumerate}
+
+Bitte stellen Sie mir außerdem kostenfrei eine Kopie meiner bei Ihnen
+gespeicherten personenbezogenen Daten zur Verfügung.
+
+Sollte ich in der Vergangenheit eingewilligt haben, meine Daten für Zwecke der
+Werbung, des Adresshandles, der Spendenwerbung, der Markt- und
+Meinungsforschung zu nutzen, so widerspreche ich hiermit dieser Erlaubnis.
+Bitte teilen Sie mir den Status der Einwilligung mit.
+
+Mein Name: \textbf{$requester_name}\\
+Mein Geburtsdatum: \textbf{$requester_birth_date}
+
+Meine Anschrift: \textbf{$requester_street, $requester_zip $requester_city}
+
+\renewcommand*{\raggedsignature}{\raggedright}
+\raggedsignature
+\closing{Freundliche Grüße}
+\end{letter}
+\end{document}
