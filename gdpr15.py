@@ -21,11 +21,12 @@ def main(argv):
     with open('letter.tex', 'w') as letter:
         letter.write(template.substitute(data))
         letter.close()
+    subprocess.call(['lualatex', 'letter.tex'])
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print(f'Usage: {argv[0]} institution.json')
+        print(f'Usage: {sys.argv[0]} institution.json')
         sys.exit(2)
     else:
         main(sys.argv)
