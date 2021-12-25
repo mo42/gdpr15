@@ -10,17 +10,19 @@ from string import Template
 def main(argv):
     '''Print LaTeX letter of the request on the command line.'''
     try:
-        institution = json.loads(open(argv[1], 'r').read())
-        requester = json.loads(open('config.json', 'r').read())
+        with open(argv[1], mode='r', encoding='utf-8') as institution_file, \
+            open('config.json', mode='r', encoding='utf-8') as requester_file:
+            institution = json.loads(institution_file.read())
+            requester = json.loads(requester_file.read())
     except IOError:
         print(f'Error: {argv[1]} or \'config.json\' do(es) not exist.')
         raise
     data = institution['company']
     data.update(requester)
-    template = Template(open('letter.template', 'r').read())
-    with open('letter.tex', 'w') as letter:
-        letter.write(template.substitute(data))
-        letter.close()
+    with open('letter.template', mode='r', encoding='utf-8') as template_file, \
+        open('letter.tex', mode='w', encoding='utf-8') as letter_file:
+        template = Template(template_file.read())
+        letter_file.write(template.substitute(data))
     subprocess.call(['lualatex', 'letter.tex'])
 
 
