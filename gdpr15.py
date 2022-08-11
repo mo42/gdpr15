@@ -7,15 +7,15 @@ import subprocess
 import sys
 from string import Template
 
-def main(argv):
+def main(file_name):
     '''Print LaTeX letter of the request on the command line.'''
     try:
-        with open(argv[1], mode='r', encoding='utf-8') as institution_file, \
+        with open(file_name, mode='r', encoding='utf-8') as institution_file, \
             open('config.json', mode='r', encoding='utf-8') as requester_file:
             institution = json.loads(institution_file.read())
             requester = json.loads(requester_file.read())
     except IOError:
-        print(f'Error: {argv[1]} or \'config.json\' do(es) not exist.')
+        print(f'Error: {file_name} or \'config.json\' do(es) not exist.')
         raise
     data = institution['company']
     data.update(requester)
@@ -32,4 +32,5 @@ if __name__ == '__main__':
         print(f'Usage: {sys.argv[0]} institution.json')
         sys.exit(2)
     else:
-        main(sys.argv)
+        for file_name in sys.argv[1:]:
+            main(file_name)
