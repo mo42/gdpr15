@@ -19,11 +19,12 @@ def main(argv):
         raise
     data = institution['company']
     data.update(requester)
+    name = institution['company']['name'].lower().replace(' ', '_')
     with open('letter.template', mode='r', encoding='utf-8') as template_file, \
-        open('letter.tex', mode='w', encoding='utf-8') as letter_file:
+        open(f'{name}.tex', mode='w', encoding='utf-8') as letter_file:
         template = Template(template_file.read())
         letter_file.write(template.substitute(data))
-    subprocess.call(['lualatex', 'letter.tex'])
+    subprocess.call(['lualatex', f'{name}.tex'])
 
 
 if __name__ == '__main__':
