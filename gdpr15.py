@@ -3,6 +3,7 @@
 '''Automatically send a request according to article 15 GDPR.'''
 
 import json
+import argparse
 import subprocess
 import sys
 from string import Template
@@ -28,7 +29,7 @@ def tex_escape_dict_values(d):
                 d[k] = tex_escape(v)
     return d
 
-def main(file_name):
+def main(file_name, language):
     '''Print LaTeX letter of the request on the command line.'''
     try:
         with open(file_name, mode='r', encoding='utf-8') as institution_file, \
@@ -53,9 +54,11 @@ def main(file_name):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print(f'Usage: {sys.argv[0]} institution.json')
-        sys.exit(2)
-    else:
-        for file_name in sys.argv[1:]:
-            main(file_name, language)
+    parser = argparse.ArgumentParser(description='Generate letters according to article 15 GDPR')
+    parser.add_argument('-l', '--language', help='language of the data request', required=True)
+    parser.add_argument('-c', '--contacts', nargs='+', type=str, help='contacts files to create request letters', required=True)
+    arguments = parser.parse_args()
+    print(arguments)
+    for contact in arguments.contacts:
+        main(contact, arguments.language)
+
