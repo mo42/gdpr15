@@ -43,8 +43,10 @@ def main(file_name):
     data = institution['company']
     data.update(requester)
     file_name = clean_file_name(institution['company']['name'])
-    with open('letter.template', mode='r', encoding='utf-8') as template_file, \
-        open(f'{file_name}.tex', mode='w', encoding='utf-8') as letter_file:
+    with open(f'letter_{language}.template', mode='r', encoding='utf-8') \
+            as template_file, \
+        open(f'{file_name}.tex', mode='w', encoding='utf-8') \
+            as letter_file:
         template = Template(template_file.read())
         letter_file.write(template.substitute(data))
     subprocess.call(['lualatex', f'{file_name}.tex'])
@@ -56,4 +58,4 @@ if __name__ == '__main__':
         sys.exit(2)
     else:
         for file_name in sys.argv[1:]:
-            main(file_name)
+            main(file_name, language)

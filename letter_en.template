@@ -1,0 +1,48 @@
+\documentclass{scrlttr2}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{.36cm plus0.09cm minus0.09cm}
+\usepackage{lastpage}
+\makeatletter
+\renewcommand\pagemark{%
+  \usekomafont{pageheadfoot}\usekomafont{pagefoot}\usekomafont{pagenumber}%
+    \flushright Seite \thepage{}~von~\pageref{LastPage}%
+}
+\makeatother
+\setkomavar{firstfoot}{\raggedleft\usekomafont{pageheadfoot}{\usekomafont{pagefoot}{\pagemark}}}
+\begin{document}
+\begin{letter}{$name\\$street\\$pcode $city}
+\setkomavar{fromname}{$requester_name}
+\setkomavar{fromaddress}{%
+$requester_street\\
+$requester_zip $requester_city
+}
+
+\setkomavar{place}{$requester_city}
+\setkomavar{date}{\today}
+\setkomavar{subject}{Data request according to Art. 15 GDPR}
+
+\opening{To Whom It May Concern:}
+
+I am hereby requesting information according to Article 15 GDPR as to whether you process personal data about me.
+If applicable, I request information about:
+1. which personal data do you process?
+2. for what purposes do you process this data?
+3. where does this data come from?
+4. how long do you process my personal data?
+5. if you transfer data to third parties: for what purposes and to whom?
+6. do I have the right to correct, delete, restrict or object to the processing of this data?
+
+Please also provide me with a copy of my personal data stored by you free of charge.
+
+My name: \textbf{$requester_name}\\
+My date of birth: \textbf{$requester_birth_date}
+
+My address: \textbf{$requester_street, $requester_zip $requester_city}
+
+\renewcommand*{\raggedsignature}{\raggedright}
+\raggedsignature
+\closing{Kind regards,}
+\end{letter}
+\end{document}

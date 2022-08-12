@@ -19,6 +19,3 @@ For it to run, Python and LaTeX is required.
      [selbstauskunft.net](https://selbstauskunft.net/)
 2. Put your personal information in ```config.json```.
 3. Run ```./gdpr15.py contacts/sample.json```.
-
-## TODO
-* English translation
