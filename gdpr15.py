@@ -5,32 +5,34 @@
 import json
 import argparse
 import subprocess
-import sys
 from string import Template
 
 ESCAPE_CHARACTERS = ["\\", "&", "%", "$", "#", "_", "{", "}", "~", "^"]
 
 
 def tex_escape(string):
+    """Escape special LaTeX characters."""
     for escape_character in ESCAPE_CHARACTERS:
-        string = string.replace(escape_character, f"\{escape_character}")
+        string = string.replace(escape_character, "\\" + escape_character)
     return string
 
 
 def clean_file_name(string):
+    """Remove special characters from file names."""
     for escape_character in ESCAPE_CHARACTERS:
         string = string.replace(escape_character, "")
     return string.lower().replace(" ", "_")
 
 
-def tex_escape_dict_values(d):
-    for k, v in d.items():
-        if isinstance(v, dict):
-            tex_escape_dict_values(v)
+def tex_escape_dict_values(dictionary):
+    """"Remove special LaTeX characters from all values in dictionary."""
+    for key, value in dictionary.items():
+        if isinstance(value, dict):
+            tex_escape_dict_values(value)
         else:
-            if isinstance(v, str):
-                d[k] = tex_escape(v)
-    return d
+            if isinstance(value, str):
+                dictionary[key] = tex_escape(value)
+    return dictionary
 
 
 def main(file_name, language):
@@ -73,6 +75,5 @@ if __name__ == "__main__":
         required=True,
     )
     arguments = parser.parse_args()
-    print(arguments)
     for contact in arguments.contacts:
         main(contact, arguments.language)
