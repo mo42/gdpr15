@@ -4,6 +4,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{.36cm plus0.09cm minus0.09cm}
 \usepackage{lastpage}
+\usepackage{enumitem}
 \makeatletter
 \renewcommand\pagemark{%
   \usekomafont{pageheadfoot}\usekomafont{pagefoot}\usekomafont{pagenumber}%
@@ -27,12 +28,14 @@ $requester_zip $requester_city
 
 I am hereby requesting information according to Article 15 GDPR as to whether you process personal data about me.
 If applicable, I request information about:
-1. which personal data do you process?
-2. for what purposes do you process this data?
-3. where does this data come from?
-4. how long do you process my personal data?
-5. if you transfer data to third parties: for what purposes and to whom?
-6. do I have the right to correct, delete, restrict or object to the processing of this data?
+\begin{enumerate}[noitemsep]
+\item which personal data do you process?
+\item for what purposes do you process this data?
+\item where does this data come from?
+\item how long do you process my personal data?
+\item if you transfer data to third parties: for what purposes and to whom?
+\item do I have the right to correct, delete, restrict or object to the processing of this data?
+\end{enumerate}
 
 Please also provide me with a copy of my personal data stored by you free of charge.
 
