@@ -2,30 +2,30 @@
 
 """Automatically send a request according to article 15 GDPR."""
 
-import json
 import argparse
+import json
 import subprocess
 from string import Template
 
 ESCAPE_CHARACTERS = ["\\", "&", "%", "$", "#", "_", "{", "}", "~", "^"]
 
 
-def tex_escape(string):
+def tex_escape(string: str) -> str:
     """Escape special LaTeX characters."""
     for escape_character in ESCAPE_CHARACTERS:
         string = string.replace(escape_character, "\\" + escape_character)
     return string
 
 
-def clean_file_name(string):
+def clean_file_name(string: str) -> str:
     """Remove special characters from file names."""
     for escape_character in ESCAPE_CHARACTERS:
         string = string.replace(escape_character, "")
     return string.lower().replace(" ", "_")
 
 
-def tex_escape_dict_values(dictionary):
-    """"Remove special LaTeX characters from all values in dictionary."""
+def tex_escape_dict_values(dictionary: dict):
+    """Remove special LaTeX characters from all values in dictionary."""
     for key, value in dictionary.items():
         if isinstance(value, dict):
             tex_escape_dict_values(value)
@@ -77,6 +77,7 @@ def main():
     arguments = parser.parse_args()
     for contact in arguments.contacts:
         run(contact, arguments.language)
+
 
 if __name__ == "__main__":
     main()
