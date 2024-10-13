@@ -1,3 +1,4 @@
+build
 contacts/
 !contacts/sample.json
 *.aux

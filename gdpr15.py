@@ -35,7 +35,7 @@ def tex_escape_dict_values(dictionary):
     return dictionary
 
 
-def main(file_name, language):
+def run(file_name, language):
     """Print LaTeX letter of the request on the command line."""
     try:
         with open(file_name, mode="r", encoding="utf-8") as institution_file, open(
@@ -59,7 +59,7 @@ def main(file_name, language):
     subprocess.call(["lualatex", f"{file_name}.tex"])
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(
         description="Generate letters according to article 15 GDPR"
     )
@@ -76,4 +76,7 @@ if __name__ == "__main__":
     )
     arguments = parser.parse_args()
     for contact in arguments.contacts:
-        main(contact, arguments.language)
+        run(contact, arguments.language)
+
+if __name__ == "__main__":
+    main()
